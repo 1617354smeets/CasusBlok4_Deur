@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Gpio;
+using System.Diagnostics;
 
 namespace Deur
 {
@@ -30,6 +31,7 @@ namespace Deur
         }
         public void VeranderKleur(string kleur)
         {
+            Debug.Write("Stoplicht kleur: " + kleur);
             if (kleur == "groen")
             {
                 gpGroen.Write(GpioPinValue.Low);

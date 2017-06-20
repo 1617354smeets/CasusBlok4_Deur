@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Deur
 {
@@ -18,10 +19,12 @@ namespace Deur
         public void DeurOpen(bool positie)
         {
             deurOpen = positie;
+            Debug.Write("Deur gaat open: " + positie);
         }
         public void KlepOpen(bool positie)
         {
             klepOpen = positie;
+            Debug.Write("Klep gaat open: " + positie);
         }
     }
 }

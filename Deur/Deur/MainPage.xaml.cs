@@ -12,13 +12,14 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Deur
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Deurcontroller. De controller classe waarin alles aangestuurd wordt.
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -45,6 +46,10 @@ namespace Deur
 
         }
 
+        /// <summary>
+        /// Omzetten van ontvangen data naar acties.
+        /// </summary>
+        /// <param name="data"></param>
         private void TranslateData(string data) //Data meegeven
         {
             string[] datalist = data.Split('@');
@@ -56,7 +61,16 @@ namespace Deur
             {
                 deur.KlepOpen(Convert.ToBoolean(datalist[1]));
             }
+            else if (data.StartsWith("boot"))
+            {
+                Debug.Write(sensor.MeetLengteBoot()); //verstuur
+            }
         }
+
+        /// <summary>
+        /// Protocol om deur te sluiten of openen.
+        /// </summary>
+        /// <param name="positie"></param>
         private void DeurPositie(bool positie)
         {
             if (positie)
