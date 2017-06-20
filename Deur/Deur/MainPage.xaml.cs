@@ -22,10 +22,20 @@ namespace Deur
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        //Aanmaken van objecten
+        Deur deur = new Deur(false);
+        Sensor sensor = new Sensor(100);
+        Stoplicht stoplicht1 = new Stoplicht(21, 22);
+        Stoplicht stoplicht2 = new Stoplicht(16, 17);
+
         public MainPage()
         {
             this.InitializeComponent();
-            //Fuckditman
+            Init();
+        }
+        private void Init()
+        {
+
         }
     }
 }
