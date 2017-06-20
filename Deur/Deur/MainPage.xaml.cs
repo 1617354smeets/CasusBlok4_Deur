@@ -22,6 +22,9 @@ namespace Deur
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        //temp
+        string data;
+
         //Aanmaken van objecten
         Deur deur = new Deur(false);
         Sensor sensor = new Sensor(100);
@@ -33,9 +36,41 @@ namespace Deur
             this.InitializeComponent();
             Init();
         }
+
+        /// <summary>
+        /// Sturen van gegevens naar simulatie. Bv: Sensor lengte.
+        /// </summary>
         private void Init()
         {
 
+        }
+
+        private void TranslateData(string data) //Data meegeven
+        {
+            string[] datalist = data.Split('@');
+            if (data.StartsWith("deur"))
+            {
+                DeurPositie(Convert.ToBoolean(datalist[1]));
+            }
+            else if (data.StartsWith("klep"))
+            {
+                deur.KlepOpen(Convert.ToBoolean(datalist[1]));
+            }
+        }
+        private void DeurPositie(bool positie)
+        {
+            if (positie)
+            {
+                stoplicht1.VeranderKleur("groen");
+                stoplicht2.VeranderKleur("groen");
+                deur.DeurOpen(true);
+            }
+            else
+            {
+                stoplicht1.VeranderKleur("rood");
+                stoplicht2.VeranderKleur("rood");
+                deur.DeurOpen(false);
+            }
         }
     }
 }
