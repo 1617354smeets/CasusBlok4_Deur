@@ -25,6 +25,7 @@ namespace Deur
         public MainPage()
         {
             this.InitializeComponent();
+            //Fuckditman
         }
     }
 }
