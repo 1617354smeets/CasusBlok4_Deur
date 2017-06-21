@@ -23,9 +23,6 @@ namespace Deur
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //temp
-        string data;
-
         //Aanmaken van objecten
         Deur deur = new Deur(false);
         Sensor sensor = new Sensor(100);
@@ -37,7 +34,6 @@ namespace Deur
         //Het nummer van de deur
         private int deurnr = 1;
 
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -47,24 +43,9 @@ namespace Deur
 
             Init();
 
-
             //Handel de ontvangen data van de server af
-            server.OnDataOntvangen += DataOntvangen;
-
-
-
-            
+            server.OnDataOntvangen += TranslateData;
         }
-
-        private void DataOntvangen(string message)
-        {
-            //Verwerk de data die ontvangen wordt door de server.
-
-
-        }
-
-
-
 
         /// <summary>
         /// Sturen van gegevens naar simulatie. Bv: Sensor lengte.
@@ -78,7 +59,7 @@ namespace Deur
         /// Omzetten van ontvangen data naar acties.
         /// </summary>
         /// <param name="data"></param>
-        private void TranslateData(string data) //Data meegeven
+        private void TranslateData(string data)
         {
             string[] datalist = data.Split('|');
             if (data.StartsWith("deur"))
@@ -91,7 +72,7 @@ namespace Deur
             }
             else if (data.StartsWith("boot"))
             {
-                Debug.Write(sensor.MeetLengteBoot()); //verstuur
+                client.Verstuur(sensor.MeetLengteBoot().ToString());
             }
         }
 
@@ -103,8 +84,6 @@ namespace Deur
         {
             if (positie)
             {
-                stoplicht1.VeranderKleur("groen");
-                stoplicht2.VeranderKleur("groen");
                 deur.DeurOpen(true);
             }
             else
