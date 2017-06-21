@@ -28,15 +28,18 @@ namespace Deur
         public string Ip { get { return _ip; } }
         public int Port { get { return _port; } }
 
+        private int deurnr;
+
         /// <summary>
         /// Initialiseer client en maak verbinding met de server
         /// </summary>
         /// <param name="ip"></param>
         /// <param name="port"></param>
-        public SocketClient(string ip, int port)
+        public SocketClient(string ip, int port, int _deurnr)
         {
             _ip = ip;
             _port = port;
+            deurnr = _deurnr;
             Eigen_IP = GetIpAddress().ToString();
             Task.Run(() => Connect()).Wait();
         }
@@ -55,7 +58,7 @@ namespace Deur
                 Task.Delay(50).Wait();
 
                 //Verstuur een bericht naar de server met eigen IP-Adres
-                Verstuur(Eigen_IP);
+                Verstuur("start|"+Convert.ToString(deurnr)+ "|"+Eigen_IP);
             }
             catch (Exception ex)
             {

@@ -34,17 +34,21 @@ namespace Deur
         SocketClient client;
         SocketServer server;
 
+        //Het nummer van de deur
+        private int deurnr = 1;
+
+
         public MainPage()
         {
             this.InitializeComponent();
 
-            client = new SocketClient("169.254.152.32", 9000);
+            client = new SocketClient("169.254.152.32", 9000, deurnr);
             server = new SocketServer(9000, client);
 
             Init();
 
 
-
+            //Handel de ontvangen data van de server af
             server.OnDataOntvangen += DataOntvangen;
 
 
