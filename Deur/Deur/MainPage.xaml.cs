@@ -32,16 +32,35 @@ namespace Deur
         Stoplicht stoplicht1 = new Stoplicht(21, 22);
         Stoplicht stoplicht2 = new Stoplicht(16, 17);
         SocketClient client;
+        SocketServer server;
 
         public MainPage()
         {
             this.InitializeComponent();
 
             client = new SocketClient("169.254.152.32", 9000);
-           
+            server = new SocketServer(9000, client);
+
             Init();
+
+
+
+            server.OnDataOntvangen += DataOntvangen;
+
+
+
             
         }
+
+        private void DataOntvangen(string message)
+        {
+            //Verwerk de data die ontvangen wordt door de server.
+
+
+        }
+
+
+
 
         /// <summary>
         /// Sturen van gegevens naar simulatie. Bv: Sensor lengte.
