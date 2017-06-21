@@ -72,7 +72,7 @@ namespace Deur
             }
             else if (data.StartsWith("boot"))
             {
-                client.Verstuur(sensor.MeetLengteBoot().ToString());
+                client.Verstuur("sensor|" + sensor.MeetLengteBoot(Convert.ToInt32(datalist[1])).ToString());
             }
         }
 

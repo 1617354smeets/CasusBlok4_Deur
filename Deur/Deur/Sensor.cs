@@ -14,9 +14,9 @@ namespace Deur
         {
             sensorLengte = lengte;
         }
-        public bool MeetLengteBoot()
+        public int MeetLengteBoot(int lengte)
         {
-            return true;
+            return lengte;
         }
     }
 }
