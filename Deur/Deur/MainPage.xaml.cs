@@ -31,11 +31,16 @@ namespace Deur
         Sensor sensor = new Sensor(100);
         Stoplicht stoplicht1 = new Stoplicht(21, 22);
         Stoplicht stoplicht2 = new Stoplicht(16, 17);
+        SocketClient client;
 
         public MainPage()
         {
             this.InitializeComponent();
+
+            client = new SocketClient("169.254.152.32", 9000);
+           
             Init();
+            
         }
 
         /// <summary>
@@ -52,7 +57,7 @@ namespace Deur
         /// <param name="data"></param>
         private void TranslateData(string data) //Data meegeven
         {
-            string[] datalist = data.Split('@');
+            string[] datalist = data.Split('|');
             if (data.StartsWith("deur"))
             {
                 DeurPositie(Convert.ToBoolean(datalist[1]));
