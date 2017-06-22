@@ -3,20 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Devices.Gpio;
 
 namespace Deur
 {
     class Sensor
     {
-        int sensorLengte;
+        private GpioPin gpSensor;
+        public delegate void StuurLengteDelegate(int lengte);
+        public StuurLengteDelegate stuurlengte;
 
-        public Sensor(int lengte)
+        public Sensor(int pin)
         {
-            sensorLengte = lengte;
+            Init(pin);
         }
-        public int MeetLengteBoot(int lengte)
+        private void Init(int pin)
         {
-            return lengte;
+            var gpio = GpioController.GetDefault();
+            gpSensor = gpio.OpenPin(pin);
+            gpSensor.SetDriveMode(GpioPinDriveMode.InputPullUp);
+            gpSensor.DebounceTimeout = TimeSpan.FromMilliseconds(50);
+            gpSensor.ValueChanged += stuurlengte_ValueChanged;
         }
+        public int MeetLengteBoot()
+        {
+            Random rand = new Random();
+            int lengteboot = rand.Next(5, 90);
+            return lengteboot;
+        }
+        private void stuurlengte_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs e)
+        {
+            if (e.Edge == GpioPinEdge.FallingEdge)
+            {
+                if (stuurlengte != null)
+                {
+                    //Trigger het event, zodat er iets gedaan wordt met de ontvangen data
+                    stuurlengte(MeetLengteBoot());
+                }
+            }
+        }
+
     }
 }

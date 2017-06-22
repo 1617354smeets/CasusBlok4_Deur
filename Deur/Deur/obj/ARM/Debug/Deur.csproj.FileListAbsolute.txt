@@ -1,5 +1,4 @@
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\App.xbf
-C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\DeurController.xbf
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Deur.xr.xml
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Deur.exe
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Deur.pdb
@@ -114,13 +113,9 @@ C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\System.Xml.X
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\Deur.csprojResolveAssemblyReference.cache
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\App.g.i.cs
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\App.g.cs
-C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\DeurController.g.i.cs
-C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\DeurController.g.cs
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\XamlTypeInfo.g.cs
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\App.xaml
-C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\DeurController.xaml
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\App.xbf
-C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\DeurController.xbf
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\XamlSaveStateFile.xml
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\Deur.exe
 C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\Deur.pdb
@@ -382,3 +377,8 @@ D:\Rai\vs15\cb4\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\qualifiers.txt
 D:\Rai\vs15\cb4\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\qualifiers.txt.intermediate
 D:\Rai\vs15\cb4\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\Rai\vs15\cb4\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\MainPage.xbf
+C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\MainPage.g.i.cs
+C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\MainPage.g.cs
+C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\MainPage.xaml
+C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\obj\ARM\Debug\MainPage.xbf

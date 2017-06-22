@@ -24,10 +24,11 @@ namespace Deur
     public sealed partial class MainPage : Page
     {
         //Aanmaken van objecten
-        Deur deur = new Deur(false);
-        Sensor sensor = new Sensor(100);
-        Stoplicht stoplicht1 = new Stoplicht(21, 22);
-        Stoplicht stoplicht2 = new Stoplicht(16, 17);
+        Klep klep = new Klep(24);
+        Deur deur = new Deur(false, 21, 20, 16);
+        Sensor sensor = new Sensor(26);
+        Stoplicht stoplicht1 = new Stoplicht(19, 13);
+        Stoplicht stoplicht2 = new Stoplicht(6, 5);
         SocketClient client;
         SocketServer server;
 
@@ -52,7 +53,7 @@ namespace Deur
         /// </summary>
         private void Init()
         {
-
+            sensor.stuurlengte += stuurlengte;
         }
 
         /// <summary>
@@ -64,34 +65,31 @@ namespace Deur
             string[] datalist = data.Split('|');
             if (data.StartsWith("deur"))
             {
-                DeurPositie(Convert.ToBoolean(datalist[1]));
+                deur.DeurOpen(Convert.ToBoolean(datalist[1]));
             }
             else if (data.StartsWith("klep"))
             {
-                deur.KlepOpen(Convert.ToBoolean(datalist[1]));
+                klep.KlepOpen(Convert.ToBoolean(datalist[1]));
             }
-            else if (data.StartsWith("boot"))
+            else if (data.StartsWith("stoplicht"))
             {
-                client.Verstuur("sensor" + sensor.MeetLengteBoot(Convert.ToInt32(datalist[1])).ToString()+"|"+deurnr.ToString());
+                if (Convert.ToInt32(datalist[1]) == 1)
+                {
+                    stoplicht1.VeranderKleur(datalist[2]);
+                }
+                stoplicht1.VeranderKleur(datalist[2]);
             }
+        }
+        public void stuurlengte(int lengte)
+        {
+            Debug.Write("Boot lengte: " + lengte.ToString());
+            server.OnDataOntvangen("deur|true");
+            //client.Verstuur("sensor|" + lengte);
         }
 
         /// <summary>
         /// Protocol om deur te sluiten of openen.
         /// </summary>
         /// <param name="positie"></param>
-        private void DeurPositie(bool positie)
-        {
-            if (positie)
-            {
-                deur.DeurOpen(true);
-            }
-            else
-            {
-                stoplicht1.VeranderKleur("rood");
-                stoplicht2.VeranderKleur("rood");
-                deur.DeurOpen(false);
-            }
-        }
     }
 }

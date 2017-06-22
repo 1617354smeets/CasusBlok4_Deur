@@ -10,8 +10,8 @@ namespace Deur
 {
     class Stoplicht
     {
-        GpioPin gpRood;
-        GpioPin gpGroen;
+        private GpioPin gpGroen;
+        private GpioPin gpRood;
 
         public Stoplicht(int pin1, int pin2)
         {
