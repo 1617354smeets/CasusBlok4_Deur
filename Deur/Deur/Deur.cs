@@ -34,14 +34,14 @@ namespace Deur
             gpRood = gpio.OpenPin(redPIN);
             gpBlauw = gpio.OpenPin(bluePIN);
             gpGroen = gpio.OpenPin(greenPIN);
-            gpRood.Write(GpioPinValue.High);
+            gpRood.Write(GpioPinValue.Low);
             gpRood.SetDriveMode(GpioPinDriveMode.Output);
             gpBlauw.Write(GpioPinValue.High);
             gpBlauw.SetDriveMode(GpioPinDriveMode.Output);
             gpGroen.Write(GpioPinValue.High);
             gpGroen.SetDriveMode(GpioPinDriveMode.Output);
         }
-        public void DeurOpen(bool positie)
+        public bool DeurOpen(bool positie)
         {
             if (positie == deurOpen)
             {
@@ -82,6 +82,7 @@ namespace Deur
                 }
                 deurOpen = positie;
             }
+            return deurOpen;
         }
     }
 }

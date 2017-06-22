@@ -23,6 +23,9 @@ namespace Deur
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        //temp
+        private int caseSwitch = 1;
+
         //Aanmaken van objecten
         Klep klep = new Klep(24);
         Deur deur = new Deur(false, 21, 20, 16);
@@ -65,11 +68,11 @@ namespace Deur
             string[] datalist = data.Split('|');
             if (data.StartsWith("deur"))
             {
-                deur.DeurOpen(Convert.ToBoolean(datalist[1]));
+                client.Verstuur(deur.DeurOpen(Convert.ToBoolean(datalist[1])).ToString());
             }
             else if (data.StartsWith("klep"))
             {
-                klep.KlepOpen(Convert.ToBoolean(datalist[1]));
+                client.Verstuur(klep.KlepOpen(Convert.ToBoolean(datalist[1])).ToString());
             }
             else if (data.StartsWith("stoplicht"))
             {
@@ -77,13 +80,30 @@ namespace Deur
                 {
                     stoplicht1.VeranderKleur(datalist[2]);
                 }
-                stoplicht1.VeranderKleur(datalist[2]);
+                else
+                {
+                    stoplicht2.VeranderKleur(datalist[2]);
+                }
             }
         }
         public void stuurlengte(int lengte)
         {
             Debug.Write("Boot lengte: " + lengte.ToString());
-            server.OnDataOntvangen("deur|true");
+            switch (caseSwitch)
+            {
+                case 1:
+                    server.OnDataOntvangen("deur|true");
+                    caseSwitch = 2;
+                    break;
+                case 2:
+                    server.OnDataOntvangen("klep|true");
+                    caseSwitch = 3;
+                    break;
+                case 3:
+                    server.OnDataOntvangen("stoplicht|1|groen");
+                    caseSwitch = 1;
+                    break;
+            }
             //client.Verstuur("sensor|" + lengte);
         }
 

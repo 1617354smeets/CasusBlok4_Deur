@@ -27,7 +27,7 @@ namespace Deur
             gpGroen.SetDriveMode(GpioPinDriveMode.Output);
             gpRood.SetDriveMode(GpioPinDriveMode.Output);
             gpGroen.Write(GpioPinValue.High);
-            gpRood.Write(GpioPinValue.High);
+            gpRood.Write(GpioPinValue.Low);
         }
         public void VeranderKleur(string kleur)
         {

@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Gpio;
+using System.Diagnostics;
 
 namespace Deur
 {
     class Klep
     {
         private GpioPin gpKlep;
+        private bool klepOpen;
         public Klep(int pin)
         {
             var gpio = GpioController.GetDefault();
@@ -17,16 +19,25 @@ namespace Deur
             gpKlep.Write(GpioPinValue.High);
             gpKlep.SetDriveMode(GpioPinDriveMode.Output);
         }
-        public void KlepOpen(bool positie)
+        public bool KlepOpen(bool positie)
         {
-            if (positie)
+            if (klepOpen == positie)
             {
-                gpKlep.Write(GpioPinValue.Low);
+                Debug.WriteLine("Klep staat al goed");
             }
             else
             {
-                gpKlep.Write(GpioPinValue.Low);
+                if (positie)
+                {
+                    gpKlep.Write(GpioPinValue.Low);
+                }
+                else
+                {
+                    gpKlep.Write(GpioPinValue.High);
+                }
+                klepOpen = positie;
             }
+            return klepOpen;
         }
     }
 }
