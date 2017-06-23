@@ -8,12 +8,12 @@ using System.Diagnostics;
 
 namespace Deur
 {
-    class Stoplicht
+    class Verkeerslicht
     {
         private GpioPin gpGroen;
         private GpioPin gpRood;
 
-        public Stoplicht(int pin1, int pin2)
+        public Verkeerslicht(int pin1, int pin2)
         {
             Init(pin1, pin2);
         }

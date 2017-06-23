@@ -30,8 +30,8 @@ namespace Deur
         Klep klep = new Klep(24);
         Deur deur = new Deur(false, 21, 20, 16);
         Sensor sensor = new Sensor(26);
-        Stoplicht stoplicht1 = new Stoplicht(19, 13);
-        Stoplicht stoplicht2 = new Stoplicht(6, 5);
+        Verkeerslicht stoplicht1 = new Verkeerslicht(19, 13);
+        Verkeerslicht stoplicht2 = new Verkeerslicht(6, 5);
         SocketClient client;
         SocketServer server;
 

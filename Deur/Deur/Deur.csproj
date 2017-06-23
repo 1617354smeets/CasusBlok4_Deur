@@ -105,7 +105,7 @@
     <Compile Include="Sensor.cs" />
     <Compile Include="SocketClient.cs" />
     <Compile Include="SocketServer.cs" />
-    <Compile Include="Stoplicht.cs" />
+    <Compile Include="Verkeerslicht.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
