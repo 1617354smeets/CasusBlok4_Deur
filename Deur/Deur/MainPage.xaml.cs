@@ -68,11 +68,11 @@ namespace Deur
             string[] datalist = data.Split('|');
             if (data.StartsWith("deur"))
             {
-                client.Verstuur(deur.DeurOpen(Convert.ToBoolean(datalist[1])).ToString());
+                client.Verstuur("deur|" + deurnr.ToString() + '|'+ deur.DeurOpen(Convert.ToBoolean(datalist[1])).ToString());
             }
             else if (data.StartsWith("klep"))
             {
-                client.Verstuur(klep.KlepOpen(Convert.ToBoolean(datalist[1])).ToString());
+                client.Verstuur("klep|" + deurnr.ToString() + '|' + klep.KlepOpen(Convert.ToBoolean(datalist[1])).ToString());
             }
             else if (data.StartsWith("stoplicht"))
             {
@@ -104,7 +104,7 @@ namespace Deur
                     caseSwitch = 1;
                     break;
             }*/ 
-            client.Verstuur("sensor|" + lengte.ToString());
+            client.Verstuur("sensor|" + deurnr.ToString() +'|'+ lengte.ToString());
         }
 
         /// <summary>
