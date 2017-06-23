@@ -8,6 +8,10 @@ using Windows.Devices.Gpio;
 
 namespace Deur
 {
+    /// <summary>
+    /// Door common cathode RGB worden High en Low omgewisseld.
+    /// High = aan ; Low = uit;
+    /// </summary>
     class Deur
     {
         //variabelen
@@ -34,11 +38,11 @@ namespace Deur
             gpRood = gpio.OpenPin(redPIN);
             gpBlauw = gpio.OpenPin(bluePIN);
             gpGroen = gpio.OpenPin(greenPIN);
-            gpRood.Write(GpioPinValue.Low);
+            gpRood.Write(GpioPinValue.High);
             gpRood.SetDriveMode(GpioPinDriveMode.Output);
-            gpBlauw.Write(GpioPinValue.High);
+            gpBlauw.Write(GpioPinValue.Low);
             gpBlauw.SetDriveMode(GpioPinDriveMode.Output);
-            gpGroen.Write(GpioPinValue.High);
+            gpGroen.Write(GpioPinValue.Low);
             gpGroen.SetDriveMode(GpioPinDriveMode.Output);
         }
         public bool DeurOpen(bool positie)
@@ -52,33 +56,33 @@ namespace Deur
                 if (positie)
                 {
                     Debug.Write("Deur gaat open");
-                    gpRood.Write(GpioPinValue.High);
+                    gpRood.Write(GpioPinValue.Low);
                     int i = 0;
                     while (i < 20)
                     {
-                        gpBlauw.Write(GpioPinValue.Low);
-                        buzzer.Buzz(GpioPinValue.Low);
-                        Task.Delay(500).Wait();
+                        gpGroen.Write(GpioPinValue.High);
                         buzzer.Buzz(GpioPinValue.High);
-                        gpBlauw.Write(GpioPinValue.High);
+                        Task.Delay(500).Wait();
+                        buzzer.Buzz(GpioPinValue.Low);
+                        gpGroen.Write(GpioPinValue.Low);
                         Task.Delay(500).Wait();
                         i++;
                     }
-                    gpBlauw.Write(GpioPinValue.Low);
+                    gpGroen.Write(GpioPinValue.High);
                 }
                 else
                 {
                     Debug.Write("Deur gaat dicht");
-                    gpGroen.Write(GpioPinValue.High);
+                    gpGroen.Write(GpioPinValue.Low);
                     int i = 0;
                     while (i < 20)
                     {
-                        gpRood.Write(GpioPinValue.Low);
-                        Task.Delay(500).Wait();
                         gpRood.Write(GpioPinValue.High);
+                        Task.Delay(500).Wait();
+                        gpRood.Write(GpioPinValue.Low);
                         i++;
                     }
-                    gpRood.Write(GpioPinValue.Low);
+                    gpRood.Write(GpioPinValue.High);
                 }
                 deurOpen = positie;
             }

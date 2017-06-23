@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-22T12:33:22.639</Modified>
+      <Modified>2017-06-23T10:02:11.252</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Deur.exe">
       <PackagePath>entrypoint\Deur.exe</PackagePath>
-      <Modified>2017-06-22T12:33:22.121</Modified>
+      <Modified>2017-06-23T10:02:11.049</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jordy\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -497,11 +497,11 @@
     <AppxPackagedFile Include="C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-22T11:44:09.911</Modified>
+      <Modified>2017-06-23T09:47:26.034</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Core\Deur.exe">
       <PackagePath>Deur.exe</PackagePath>
-      <Modified>2017-06-22T12:33:22.635</Modified>
+      <Modified>2017-06-23T10:02:11.249</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

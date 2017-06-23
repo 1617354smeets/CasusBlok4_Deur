@@ -56,7 +56,7 @@ namespace Deur
         /// </summary>
         private void Init()
         {
-            sensor.stuurlengte += stuurlengte;
+            sensor.stuurlengte += StuurLengte;
         }
 
         /// <summary>
@@ -86,10 +86,10 @@ namespace Deur
                 }
             }
         }
-        public void stuurlengte(int lengte)
+        public void StuurLengte(int lengte)
         {
-            Debug.Write("Boot lengte: " + lengte.ToString());
-            switch (caseSwitch)
+            Debug.WriteLine("Boot lengte: " + lengte.ToString());
+            /*switch (caseSwitch)
             {
                 case 1:
                     server.OnDataOntvangen("deur|true");
@@ -103,8 +103,8 @@ namespace Deur
                     server.OnDataOntvangen("stoplicht|1|groen");
                     caseSwitch = 1;
                     break;
-            }
-            //client.Verstuur("sensor|" + lengte);
+            }*/ 
+            client.Verstuur("sensor|" + lengte.ToString());
         }
 
         /// <summary>
