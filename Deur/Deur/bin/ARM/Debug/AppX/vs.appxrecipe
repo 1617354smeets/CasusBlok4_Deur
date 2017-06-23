@@ -16,7 +16,7 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
-    <RegisteredManifestChecksum>8ADEAB9A48D5AE9BF97943A79D179D5B9B807E593CFFA69933FD3FC304409874</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>25EF009D736560F74734104A6A8E5D953BE8BAEFAD5825145E97BC44B9BF2B5C</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>e398b5c1-ce35-40a1-886f-549a82189cf4_1.0.0.0_arm__n8zxek0rfxesp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>e398b5c1-ce35-40a1-886f-549a82189cf4_n8zxek0rfxesp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>e398b5c1-ce35-40a1-886f-549a82189cf4</RegisteredPackageID>
@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-23T10:02:11.252</Modified>
+      <Modified>2017-06-23T10:46:14.506</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Deur.exe">
       <PackagePath>entrypoint\Deur.exe</PackagePath>
-      <Modified>2017-06-23T10:02:11.049</Modified>
+      <Modified>2017-06-23T10:46:14.272</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jordy\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -497,11 +497,11 @@
     <AppxPackagedFile Include="C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-06-23T09:47:26.034</Modified>
+      <Modified>2017-06-23T10:44:38.587</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\jordy\Source\Repos\CasusBlok4_Deur\Deur\Deur\bin\ARM\Debug\Core\Deur.exe">
       <PackagePath>Deur.exe</PackagePath>
-      <Modified>2017-06-23T10:02:11.249</Modified>
+      <Modified>2017-06-23T10:46:14.503</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

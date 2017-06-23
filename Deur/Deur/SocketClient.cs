@@ -14,14 +14,14 @@ namespace Deur
     class SocketClient
     {
         //Aanpassen naar eigen netwerk:
-        private const string IP = "169.254.36.34"; // Client (eigen adres) vast (adres dat niet mee doet!)        
+        private const string IP = "192.168.0.104"; // Client (eigen adres) vast (adres dat niet mee doet!)        
 
         private readonly string _ip;
         private readonly int _port;
         private StreamSocket _socket;
         private DataWriter _writer;
 
-        private string Eigen_IP;
+        //private string Eigen_IP;
         public delegate void Error(string message);
         public delegate void DataRecived(string data);
 
@@ -40,7 +40,7 @@ namespace Deur
             _ip = ip;
             _port = port;
             deurnr = _deurnr;
-            Eigen_IP = GetIpAddress().ToString();
+            //Eigen_IP = GetIpAddress().ToString();
             Task.Run(() => Connect()).Wait();
         }
 
@@ -58,7 +58,7 @@ namespace Deur
                 Task.Delay(50).Wait();
 
                 //Verstuur een bericht naar de server met eigen IP-Adres
-                Verstuur("start|"+Convert.ToString(deurnr)+ "|"+Eigen_IP);
+                Verstuur("start|"+Convert.ToString(deurnr)+ "|"+IP);
             }
             catch (Exception ex)
             {

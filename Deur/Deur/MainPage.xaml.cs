@@ -42,7 +42,7 @@ namespace Deur
         {
             this.InitializeComponent();
 
-            client = new SocketClient("169.254.152.32", 9000, deurnr);
+            client = new SocketClient("192.168.0.102", 9000, deurnr);
             server = new SocketServer(9000, client);
 
             Init();
@@ -65,6 +65,7 @@ namespace Deur
         /// <param name="data"></param>
         private void TranslateData(string data)
         {
+            Debug.WriteLine(data);
             string[] datalist = data.Split('|');
             if (data.StartsWith("deur"))
             {
