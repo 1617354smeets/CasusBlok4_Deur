@@ -21,23 +21,10 @@ namespace Deur
         }
         public bool KlepOpen(bool positie)
         {
-            if (klepOpen == positie)
-            {
-                Debug.WriteLine("Klep staat al goed");
-            }
-            else
-            {
-                if (positie)
-                {
-                    gpKlep.Write(GpioPinValue.Low);
-                }
-                else
-                {
-                    gpKlep.Write(GpioPinValue.High);
-                }
-                klepOpen = positie;
-            }
-            return klepOpen;
+            gpKlep.Write(GpioPinValue.Low);
+            Task.Delay(5000).Wait();
+            gpKlep.Write(GpioPinValue.High);
+            return false;
         }
     }
 }

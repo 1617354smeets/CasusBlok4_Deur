@@ -9,7 +9,7 @@ using Windows.Devices.Gpio;
 namespace Deur
 {
     /// <summary>
-    /// Door common cathode RGB worden High en Low omgewisseld.
+    /// Voor common cathode RGB worden High en Low omgewisseld.
     /// High = aan ; Low = uit;
     /// </summary>
     class Deur
@@ -53,36 +53,36 @@ namespace Deur
             }
             else
             {
+                int i = 0;
                 if (positie)
                 {
                     Debug.Write("Deur gaat open");
                     gpRood.Write(GpioPinValue.Low);
-                    int i = 0;
                     while (i < 20)
                     {
-                        gpGroen.Write(GpioPinValue.High);
-                        buzzer.Buzz(GpioPinValue.High);
-                        Task.Delay(500).Wait();
-                        buzzer.Buzz(GpioPinValue.Low);
                         gpGroen.Write(GpioPinValue.Low);
+                        buzzer.Buzz(GpioPinValue.Low);
+                        Task.Delay(500).Wait();
+                        buzzer.Buzz(GpioPinValue.High);
+                        gpGroen.Write(GpioPinValue.High);
                         Task.Delay(500).Wait();
                         i++;
                     }
-                    gpGroen.Write(GpioPinValue.High);
                 }
                 else
                 {
                     Debug.Write("Deur gaat dicht");
                     gpGroen.Write(GpioPinValue.Low);
-                    int i = 0;
                     while (i < 20)
                     {
+                        gpRood.Write(GpioPinValue.Low);
+                        buzzer.Buzz(GpioPinValue.Low);
+                        Task.Delay(500).Wait();
+                        buzzer.Buzz(GpioPinValue.High);
                         gpRood.Write(GpioPinValue.High);
                         Task.Delay(500).Wait();
-                        gpRood.Write(GpioPinValue.Low);
                         i++;
                     }
-                    gpRood.Write(GpioPinValue.High);
                 }
                 deurOpen = positie;
             }
