@@ -52,7 +52,7 @@ namespace Deur
         }
 
         /// <summary>
-        /// Sturen van gegevens naar simulatie. Bv: Sensor lengte.
+        /// Initialisere van componenten. Bv: Sensor lengte.
         /// </summary>
         private void Init()
         {
@@ -87,6 +87,10 @@ namespace Deur
                 }
             }
         }
+        /// <summary>
+        /// Sturen van sensor informatie (lengte boot) naar controller.
+        /// </summary>
+        /// <param name="lengte"></param>
         public void StuurLengte(int lengte)
         {
             Debug.WriteLine("Boot lengte: " + lengte.ToString());
@@ -107,10 +111,5 @@ namespace Deur
             }*/ 
             client.Verstuur("sensor|" + deurnr.ToString() +'|'+ lengte.ToString());
         }
-
-        /// <summary>
-        /// Protocol om deur te sluiten of openen.
-        /// </summary>
-        /// <param name="positie"></param>
     }
 }

@@ -12,6 +12,11 @@ namespace Deur
     {
         private GpioPin gpKlep;
         private bool klepOpen;
+
+        /// <summary>
+        /// Initialiseren van klep.
+        /// </summary>
+        /// <param name="pin"></param>
         public Klep(int pin)
         {
             var gpio = GpioController.GetDefault();
@@ -19,6 +24,13 @@ namespace Deur
             gpKlep.Write(GpioPinValue.High);
             gpKlep.SetDriveMode(GpioPinDriveMode.Output);
         }
+
+        /// <summary>
+        /// Klep openen en sluiten (Veranderen waterlevel).
+        /// Klep gaat open; wacht 5 seconden; klep sluit.
+        /// </summary>
+        /// <param name="positie"></param>
+        /// <returns></returns>
         public bool KlepOpen(bool positie)
         {
             gpKlep.Write(GpioPinValue.Low);

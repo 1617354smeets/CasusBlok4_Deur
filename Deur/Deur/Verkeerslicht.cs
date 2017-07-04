@@ -18,7 +18,11 @@ namespace Deur
             Init(pin1, pin2);
         }
 
-        //Initialiseert stoplicht, stoplicht staat standaard uit.
+        /// <summary>
+        /// Initialiseren van verkeerslicht.
+        /// </summary>
+        /// <param name="pin1"></param>
+        /// <param name="pin2"></param>
         private void Init(int pin1, int pin2)
         {
             var gpio = GpioController.GetDefault();
@@ -29,6 +33,10 @@ namespace Deur
             gpGroen.Write(GpioPinValue.High);
             gpRood.Write(GpioPinValue.Low);
         }
+        /// <summary>
+        /// Veranderen van kleur stoplicht. (rood/groen)
+        /// </summary>
+        /// <param name="kleur"></param>
         public void VeranderKleur(string kleur)
         {
             Debug.Write("Stoplicht kleur: " + kleur);

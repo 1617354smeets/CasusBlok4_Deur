@@ -32,6 +32,13 @@ namespace Deur
             deurOpen = status;
             Init(redPIN, greenPIN, bluePIN);
         }
+
+        /// <summary>
+        /// Deur initialiseren.
+        /// </summary>
+        /// <param name="redPIN"></param>
+        /// <param name="bluePIN"></param>
+        /// <param name="greenPIN"></param>
         private void Init(int redPIN, int bluePIN, int greenPIN)
         {
             var gpio = GpioController.GetDefault();
@@ -45,6 +52,11 @@ namespace Deur
             gpGroen.Write(GpioPinValue.Low);
             gpGroen.SetDriveMode(GpioPinDriveMode.Output);
         }
+        /// <summary>
+        /// Deur openen of sluiten.
+        /// </summary>
+        /// <param name="positie"></param>
+        /// <returns></returns>
         public bool DeurOpen(bool positie)
         {
             if (positie == deurOpen)
@@ -58,12 +70,12 @@ namespace Deur
                 {
                     Debug.Write("Deur gaat open");
                     gpRood.Write(GpioPinValue.Low);
-                    while (i < 20)
+                    while (i < 10)
                     {
                         gpGroen.Write(GpioPinValue.Low);
-                        buzzer.Buzz(GpioPinValue.Low);
+                        //buzzer.Buzz(GpioPinValue.Low);
                         Task.Delay(500).Wait();
-                        buzzer.Buzz(GpioPinValue.High);
+                        //buzzer.Buzz(GpioPinValue.High);
                         gpGroen.Write(GpioPinValue.High);
                         Task.Delay(500).Wait();
                         i++;
@@ -73,12 +85,12 @@ namespace Deur
                 {
                     Debug.Write("Deur gaat dicht");
                     gpGroen.Write(GpioPinValue.Low);
-                    while (i < 20)
+                    while (i < 10)
                     {
                         gpRood.Write(GpioPinValue.Low);
-                        buzzer.Buzz(GpioPinValue.Low);
+                        //buzzer.Buzz(GpioPinValue.Low);
                         Task.Delay(500).Wait();
-                        buzzer.Buzz(GpioPinValue.High);
+                        //buzzer.Buzz(GpioPinValue.High);
                         gpRood.Write(GpioPinValue.High);
                         Task.Delay(500).Wait();
                         i++;
